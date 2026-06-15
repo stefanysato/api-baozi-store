@@ -16,12 +16,15 @@ public class Pedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
+	
 	@ManyToOne
 	@JoinColumn(name = "produto_id")
 	private Produto produto;
+	
 	private Integer quantidade;
 	
 	
@@ -32,17 +35,17 @@ public class Pedido {
 		this.id = id;
 	}
 	
-	public Cliente getClienteId() {
+	public Cliente getCliente() {
 		return cliente;
 	}
-	public void setClienteId(Cliente cliente) {
+	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 	
-	public Produto getProdutoId() {
+	public Produto getProduto() {
 		return produto;
 	}
-	public void setProdutoId(Produto produto) {
+	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
 	public Integer getQuantidade() {

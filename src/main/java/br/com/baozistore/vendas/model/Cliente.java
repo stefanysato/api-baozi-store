@@ -3,6 +3,7 @@ package br.com.baozistore.vendas.model;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,6 +21,8 @@ public class Cliente {
 	private Long id;
 	@Column(nullable = false)
 	private String nome;
+	@Column(nullable = false)
+	@JsonFormat(pattern = "dd-MM-yyyy")
 	private LocalDate clienteDesde;
 	
 	@OneToMany(mappedBy = "cliente")

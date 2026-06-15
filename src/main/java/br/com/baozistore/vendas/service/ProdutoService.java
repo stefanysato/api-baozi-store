@@ -3,10 +3,13 @@ package br.com.baozistore.vendas.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import br.com.baozistore.vendas.model.Produto;
 import br.com.baozistore.vendas.repository.ProdutoRepository;
 import jakarta.persistence.EntityNotFoundException;
 
+@Service
 public class ProdutoService {
 
 	@Autowired

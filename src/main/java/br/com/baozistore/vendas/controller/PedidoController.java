@@ -2,6 +2,7 @@ package br.com.baozistore.vendas.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.com.baozistore.vendas.model.Pedido;
 import br.com.baozistore.vendas.service.PedidoService;
 
@@ -19,11 +19,12 @@ import br.com.baozistore.vendas.service.PedidoService;
 @RequestMapping("/pedidos")
 public class PedidoController {
 
+	@Autowired
 	private PedidoService service;
 	
 	@PostMapping
-	public Pedido criar(@RequestBody Pedido pedido) {
-		return service.salvar(pedido);
+	public ResponseEntity<Pedido> criar(@RequestBody Pedido pedido) {		
+		return ResponseEntity.ok(service.salvar(pedido));
 	}
 	
 	@GetMapping("/{id}")
